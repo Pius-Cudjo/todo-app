@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced To-Do App</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <img style="width:400px" src="https://law.ug.edu.gh/sites/law.ug.edu.gh/files/inline-images/school_of_law_logo.png" alt="">
+            <h1>Task Manager</h1>
+            <p>Stay organized. Stay productive.</p>
+        </header>
+
+        <div class="card">
+            <form action="/add" method="POST" class="todo-form">
+                <input type="text" name="task" placeholder="What needs to be done?" required>
+                <button type="submit">Add Task</button>
+            </form>
+
+            <div class="task-list">
+                <% if (todos.length === 0) { %>
+                    <p class="empty">No tasks yet. Add one above 👆</p>
+                <% } %>
+
+                <% todos.forEach(todo => { %>
+                    <div class="task">
+                        <span><%= todo.task %></span>
+                        <form action="/delete/<%= todo.id %>" method="POST">
+                            <button class="delete">✕</button>
+                        </form>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
