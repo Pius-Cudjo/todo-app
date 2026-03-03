@@ -1,6 +1,6 @@
 dockerfile
 
-FROM node:20-alpine
+FROM public.ecr.aws/docker/library/node:25-alpine
 WORKDIR .
 COPY package*.json ./
 RUN npm ci --omit=dev
